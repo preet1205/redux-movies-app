@@ -21,6 +21,11 @@ const MovieCard = (movie) => {
 const Wrapper = styled.article`
   background: var(--secondary-color);
   height: fit-content;
+  transition: all 0.3s;
+  &:hover {
+    transform: scale(1.1);
+    transition: all 0.3s;
+  }
   .movie-image {
     height: 300px;
   }
@@ -53,7 +58,9 @@ const Wrapper = styled.article`
     border: 1px solid var(--font-secondary);
   }
   a:hover {
-    font-size: 120%;
+    font-size: 110%;
+    background: var(--font-secondary-1);
+    color: var(--secondary-color-1);
   }
 `;
 

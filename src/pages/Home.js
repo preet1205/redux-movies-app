@@ -2,10 +2,9 @@ import { useEffect, useState } from "react";
 import styled from "styled-components";
 import axios from "axios";
 import { MoviesList, Loader } from "../components";
-import {} from "../data/fetchData";
 import { useDispatch, useSelector } from "react-redux";
-import { addMovies } from "../features/movies/movieSlice";
-import { fetchMovies, API_ENDPOINT } from "../features/movies/movieSlice";
+import {} from "../features/movies/movieSlice";
+import { fetchMovies, addMovies } from "../features/movies/movieSlice";
 
 const Home = () => {
   const [searchTerm, setSearchTerm] = useState("");
