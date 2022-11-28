@@ -5,7 +5,6 @@ import MovieCard from "./MovieCard.jsx";
 
 const MoviesList = () => {
   const { moviesList } = useSelector((store) => store.movies);
-  console.log(moviesList);
   return (
     <Wrapper>
       <div className="movie-list">

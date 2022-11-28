@@ -1,6 +1,7 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import { API_ENDPOINT } from "../../data/fetchData";
 import axios from "axios";
+
+export const API_ENDPOINT = "http://www.omdbapi.com/?apikey=";
 
 const initialState = {
   moviesList: [],

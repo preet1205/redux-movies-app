@@ -2,10 +2,10 @@ import { useEffect, useState } from "react";
 import styled from "styled-components";
 import axios from "axios";
 import { MoviesList, Loader } from "../components";
-import { API_ENDPOINT } from "../data/fetchData";
+import {} from "../data/fetchData";
 import { useDispatch, useSelector } from "react-redux";
 import { addMovies } from "../features/movies/movieSlice";
-import { fetchMovies } from "../features/movies/movieSlice";
+import { fetchMovies, API_ENDPOINT } from "../features/movies/movieSlice";
 
 const Home = () => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -16,7 +16,7 @@ const Home = () => {
 
   useEffect(() => {
     dispatch(fetchMovies(movieSearch));
-  }, []);
+  }, [dispatch]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -43,7 +43,7 @@ const Home = () => {
 
   return (
     <Wrapper>
-      <form className="form" onSubmit={(e) => e.preventDefault()}>
+      <form className="form" onSubmit={handleSubmit}>
         <div className="form-control">
           <input
             type="text"
@@ -52,7 +52,7 @@ const Home = () => {
             onChange={(e) => setSearchTerm(e.target.value)}
           />
           <button type="button" className="search-btn" onClick={handleSubmit}>
-            <i class="fa-solid fa-magnifying-glass"></i>
+            <i className="fa-solid fa-magnifying-glass"></i>
           </button>
         </div>
       </form>

@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-import Image from "../assessts/user.png";
+import Image from "../assets/user.png";
 
 const Header = () => {
   return (
