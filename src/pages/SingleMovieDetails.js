@@ -3,7 +3,24 @@ import styled from "styled-components";
 import { useSelector, useDispatch } from "react-redux";
 import { useEffect } from "react";
 import { Loader } from "../components";
-import { getMovieDetails } from "../features/singleMovie/singleMovieSlice";
+import {
+  getMovieDetails,
+  removeDetails,
+} from "../features/singleMovie/singleMovieSlice";
+
+const StyledLink = styled(Link)`
+  background: var(--font-secondary-1);
+  color: var(--primary-color);
+  padding: 0.5rem 0.8rem;
+  border-radius: 10px;
+  font-weight: 500;
+  margin-left: 3rem;
+
+  i {
+    margin-right: 0.5rem;
+    font-size: 110%;
+  }
+`;
 
 const SingleMovieDetails = () => {
   const { Id } = useParams();
@@ -11,7 +28,10 @@ const SingleMovieDetails = () => {
   const { movieDetails, isLoading } = useSelector((store) => store.movieDetail);
   useEffect(() => {
     dispatch(getMovieDetails(Id));
-  }, [dispatch, Id]);
+    return () => {
+      dispatch(removeDetails());
+    };
+  }, [Id]);
 
   if (isLoading) {
     return (
@@ -41,9 +61,10 @@ const SingleMovieDetails = () => {
 
   return (
     <>
-      <Link to="/" className="back-link">
+      <StyledLink to="/" className="back-link">
+        <i class="fa-sharp fa-solid fa-arrow-left"></i>
         Back to Movies
-      </Link>
+      </StyledLink>
       <Wrapper>
         <section className="section-left">
           <h2 className="movie-title">{Title}</h2>

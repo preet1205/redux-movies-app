@@ -22,6 +22,7 @@ const Wrapper = styled.header`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-bottom: 3rem;
 
   .logo a {
     text-decoration: none;

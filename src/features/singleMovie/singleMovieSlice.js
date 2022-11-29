@@ -24,6 +24,11 @@ export const getMovieDetails = createAsyncThunk(
 const singleMovieSlice = createSlice({
   name: "movieDetail",
   initialState,
+  reducers: {
+    removeDetails: (state) => {
+      state.movieDetails = {};
+    },
+  },
   extraReducers: (builder) => {
     builder
       .addCase(getMovieDetails.pending, (state) => {
@@ -38,5 +43,7 @@ const singleMovieSlice = createSlice({
       });
   },
 });
+
+export const { removeDetails } = singleMovieSlice.actions;
 
 export default singleMovieSlice.reducer;
