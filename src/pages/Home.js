@@ -8,6 +8,7 @@ import { fetchMovies, addMovies } from "../features/movies/movieSlice";
 
 const Home = () => {
   const [searchTerm, setSearchTerm] = useState("");
+  const [page, setPage] = useState(1);
   const { isLoading, isError } = useSelector((store) => store.movies);
 
   const movieSearch = "Harry";
@@ -19,6 +20,11 @@ const Home = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    dispatch(fetchMovies(searchTerm));
+  };
+
+  const loadMore = () => {
+    setPage((prev) => prev + 1);
     dispatch(fetchMovies(searchTerm));
   };
 
@@ -57,7 +63,6 @@ const Home = () => {
       </form>
       <article className="banner-img"></article>
       <MoviesList />
-      <button className="btn">Load More</button>
     </Wrapper>
   );
 };

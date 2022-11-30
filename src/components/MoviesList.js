@@ -10,9 +10,8 @@ const MoviesList = () => {
       <div className="movie-list">
         <h2>Movies</h2>
         <div className="movie-container">
-          {moviesList.map((movie) => {
-            const { imdbID: id } = movie;
-            return <MovieCard key={id} {...movie} />;
+          {moviesList.map((movie, index) => {
+            return <MovieCard key={index} {...movie} />;
           })}
         </div>
       </div>

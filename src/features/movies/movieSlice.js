@@ -16,6 +16,7 @@ export const fetchMovies = createAsyncThunk(
       const res = await axios.get(
         `${API_ENDPOINT}${process.env.REACT_APP_API_KEY}&s=${movieSearch}&type=movie`
       );
+
       return res.data.Search;
     } catch (error) {
       return thunkAPI.rejectWithValue("SOMETHING WENT WRONG");
