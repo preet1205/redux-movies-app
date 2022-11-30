@@ -62,7 +62,7 @@ const SingleMovieDetails = () => {
   return (
     <>
       <StyledLink to="/" className="back-link">
-        <i class="fa-sharp fa-solid fa-arrow-left"></i>
+        <i className="fa-sharp fa-solid fa-arrow-left"></i>
         Back to Movies
       </StyledLink>
       <Wrapper>
